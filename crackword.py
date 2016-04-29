@@ -13,14 +13,16 @@ aof = 0 #Comb counter
 passwordfound = False #Has to be False. Becomes true when password found
 timeout = False #Has to be False. Becomes true when the time is out
 list = ["q","w","e","r","t","y","u","i","o","p","å","a","s","d","f","g","h","j","k","l","ø","æ","å","z","x","c","v","b","n","m","1","2","3","4","5","6","7","8","9","0"," "]
+whitelist = ["password","123456","1234567","1234","qwerty","12345"]
 maxtime = 1000000000000000 #In seconds. Time failsafe. Will make timeout true if this amount of seconds passes.
 timeofend = False #The time that the password gets cracked. Its time.time() so watch out.
-maxlength = 7 #Change this to add a mex password length failsafe
+maxlength = 8 #Change this to add a mex password length failsafe
+hasnumbers = False
 
 
 #Gotta print stuff
-print("Made by the to be master programmer Raheem for the Birralee International School Science fair.")
-print("Only numbers and letters. Read my report or talk to me if you have quesstions.")
+print("Made by the to be master programmer Rahoom for the Birralee International School Science fair.")
+print("Only numbers and letters. Read my report or talk to me if you have questions. Please do not use special signs like @ # %")
 
 #input and time start
 print("Write your password:")
@@ -28,6 +30,11 @@ inputpassword = input() #
 password = inputpassword.lower() #Computer isn't strong enough to do caps but cheating is allowed.
 PASSLEN = len(password) #For the maxlength failsafe
 timeofstart = time.time() #Get the start of time
+
+for whitepassword in whitelist:
+	if password == whitepassword:
+		print("This password is on the popular password whitelist. You really need to change it!!!!!! ")
+		sys.exit()
 
 
 if PASSLEN >= maxlength: #Length failsafe
@@ -207,8 +214,6 @@ if Timetaken > 60:
         displayedtime = inminis
         unit = "minutes"
 
-
-
 #Play sound
 winsound.Beep(1000, 1000)
 
@@ -219,7 +224,17 @@ if timeout:
 
 #Feed back.
 if passwordfound:
-          print("It took this average computer ", displayedtime , " ", unit, " to crack your password after trying", aof, "combinations."  )
+       		print("It took this average computer ", displayedtime , " ", unit, " to crack your password after trying", aof, "combinations."  )
+       		print("To make your password stronger:\n")
+        	for i in password:
+          		if i in ["1","2","3","4","5","6","7","8","9","0"]:
+          			hasnumbers = True
+       		if not hasnumbers:
+          		print ("You can add numbers to increase variation.\n")
+          		
+        	if PASSLEN < 7:
+          		print("I recommend that you change your password to at least 7 letters long.")
+          	
 
 else:
 	print("Damn it. Didn't get the password. Do not use symbols that are not standard. Debug stuff: ", aof, " ", Timetaken)
@@ -228,4 +243,4 @@ else:
 time.sleep(300)
 
 
-#226 lines of code. DAMN SON!!
+#226 lines of code. DAMN SON
