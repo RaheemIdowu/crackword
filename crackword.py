@@ -5,7 +5,7 @@
 
 #Imports. Need time and sound. Remember to plug your batteries in! :D
 import time
-#import winsound
+import winsound
 import sys
 
 #Set up variables.
@@ -278,7 +278,7 @@ if Timetaken > 60:
         unit = "minutes"
 
 #Play sound
-#winsound.Beep(1000, 1000)
+winsound.Beep(1000, 1000)
 
 #Check for exception(time over or too long password
 if timeout:
