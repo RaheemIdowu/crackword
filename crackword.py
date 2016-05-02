@@ -188,9 +188,38 @@ if not passwordfound  or not timeout:
                                                                         timeofend = time.time()
                                                                         passwordfound = True
         
-
-        
-        
+if not passwordfound  or not timeout:
+        for a in list:
+                if passwordfound or timeout:
+                        break
+                for b in list:
+                        if passwordfound or timeout:
+                                break
+                        for c in list:
+                                if passwordfound or timeout:
+                                        break
+                                for d in list:
+                                        if passwordfound or timeout:
+                                                break
+                                        for e in list:
+                                                if passwordfound or timeout:
+                                                        break
+                                                for f in list:
+                                                        if passwordfound or timeout:
+                                                                break
+                                                        for g in list:
+                                                        	if passwordfound or timeout:
+                                                        		break
+                                                        	for h in list:
+                                                        		if (time.time() - timeofstart) > maxtime:
+                                                        			timeout = True
+                                                        			break
+                                                        		aof = aof + 1
+                                                        		if a+b+c+d+e+f+g+h == password:
+                                                        			timeofend = time.time()
+                                                        			passwordfound = True
+                                                        			
+                                                        	
 			
 
         
@@ -224,16 +253,20 @@ if timeout:
 
 #Feed back.
 if passwordfound:
-       		print("It took this average computer ", displayedtime , " ", unit, " to crack your password after trying", aof, "combinations."  )
-       		print("To make your password stronger:\n")
-        	for i in password:
-          		if i in ["1","2","3","4","5","6","7","8","9","0"]:
-          			hasnumbers = True
-       		if not hasnumbers:
-          		print ("You can add numbers to increase variation.\n")
+  	print("It took this average computer ", displayedtime , " ", unit, " to crack your password after trying", aof, "combinations."  )
+  	print("To make your password stronger:")
+	for i in password:
+     		if i in ["1","2","3","4","5","6","7","8","9","0"]:
+        		hasnumbers = True
+          			
+  	if not hasnumbers:
+    		print ("You can add numbers to increase variation.")
           		
-        	if PASSLEN < 7:
-          		print("I recommend that you change your password to at least 7 letters long.")
+  	if PASSLEN < 7:
+    		print("I recommend that you change your password to at least 7 letters long.")
+          		
+  	if inputpassword == password:
+  		print("You can also mix up the caps. aaa is less secure than AaA")
           	
 
 else:
