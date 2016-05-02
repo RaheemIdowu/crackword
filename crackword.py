@@ -5,7 +5,7 @@
 
 #Imports. Need time and sound. Remember to plug your batteries in! :D
 import time
-import winsound
+#import winsound
 import sys
 
 #Set up variables.
@@ -16,7 +16,7 @@ list = ["q","w","e","r","t","y","u","i","o","p","å","a","s","d","f","g","h","j"
 whitelist = ["password","123456","1234567","1234","qwerty","12345"]
 maxtime = 1000000000000000 #In seconds. Time failsafe. Will make timeout true if this amount of seconds passes.
 timeofend = False #The time that the password gets cracked. Its time.time() so watch out.
-maxlength = 8 #Change this to add a mex password length failsafe
+maxlength = 10 #Change this to add a mex password length failsafe
 hasnumbers = False
 
 
@@ -218,6 +218,40 @@ if not passwordfound  or not timeout:
                                                         		if a+b+c+d+e+f+g+h == password:
                                                         			timeofend = time.time()
                                                         			passwordfound = True
+
+if not passwordfound  or not timeout:
+        for a in list:
+                if passwordfound or timeout:
+                        break
+                for b in list:
+                        if passwordfound or timeout:
+                                break
+                        for c in list:
+                                if passwordfound or timeout:
+                                        break
+                                for d in list:
+                                        if passwordfound or timeout:
+                                                break
+                                        for e in list:
+                                                if passwordfound or timeout:
+                                                        break
+                                                for f in list:
+                                                        if passwordfound or timeout:
+                                                                break
+                                                        for g in list:
+                                                        	if passwordfound or timeout:
+                                                        		break
+                                                        	for h in list:
+                                                        		if passwordfound or timeout:
+                                                        			break
+                                                        		for i in list:
+                                                        			if (time.time() - timeofstart) > maxtime:
+                                                        				timeout = True
+                                                        				break
+                                                        			aof = aof + 1
+                                                        			if a+b+c+d+e+f+g+h+i == password:
+                                                        				timeofend = time.time()
+                                                        				passwordfound = True
                                                         			
                                                         	
 			
@@ -244,7 +278,7 @@ if Timetaken > 60:
         unit = "minutes"
 
 #Play sound
-winsound.Beep(1000, 1000)
+#winsound.Beep(1000, 1000)
 
 #Check for exception(time over or too long password
 if timeout:
@@ -254,19 +288,6 @@ if timeout:
 #Feed back.
 if passwordfound:
   	print("It took this average computer ", displayedtime , " ", unit, " to crack your password after trying", aof, "combinations."  )
-  	print("To make your password stronger:")
-	for i in password:
-     		if i in ["1","2","3","4","5","6","7","8","9","0"]:
-        		hasnumbers = True
-          			
-  	if not hasnumbers:
-    		print ("You can add numbers to increase variation.")
-          		
-  	if PASSLEN < 7:
-    		print("I recommend that you change your password to at least 7 letters long.")
-          		
-  	if inputpassword == password:
-  		print("You can also mix up the caps. aaa is less secure than AaA")
           	
 
 else:
