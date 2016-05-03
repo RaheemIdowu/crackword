@@ -12,7 +12,8 @@ import sys
 aof = 0 #Comb counter
 passwordfound = False #Has to be False. Becomes true when password found
 timeout = False #Has to be False. Becomes true when the time is out
-list = ["q","w","e","r","t","y","u","i","o","p","å","a","s","d","f","g","h","j","k","l","ø","æ","å","z","x","c","v","b","n","m","1","2","3","4","5","6","7","8","9","0"," "]
+list = ["q","w","e","r","t","y","u","i","o","p","å","a","s","d","f","g","h","j","k","l","ø","æ","å","z","x","c","v","b","n","m","1","2","3","4","5","6","7","8","9","0"," ","Q","W","E","R","T","Y","U","I","O","P","Å","A","S","D","F","G","H","J","K","L","Ø","Æ","Z","X","C","V","B","N","M"]
+print(len(list))
 whitelist = ["password","123456","1234567","1234","qwerty","12345"]
 maxtime = 1000000000000000 #In seconds. Time failsafe. Will make timeout true if this amount of seconds passes.
 timeofend = False #The time that the password gets cracked. Its time.time() so watch out.
@@ -21,13 +22,19 @@ hasnumbers = False
 
 
 #Gotta print stuff
-print("Made by the to be master programmer Rahoom for the Birralee International School Science fair.")
-print("Only numbers and letters. Read my report or talk to me if you have questions. Please do not use special signs like @ # %")
+print("Made by the to be Raheem for the Birralee International School Science fair.")
+print("Only numbers and letters. Read my report or talk to me if you have questions. Don't use special signs like @ # %. Max 8 letters. \n A six letter password would take more than 1 hour anyway")
 
 #input and time start
 print("Write your password:")
-inputpassword = input() #
-password = inputpassword.lower() #Computer isn't strong enough to do caps but cheating is allowed.
+inputpassword = input()
+
+txtfile = open("password.txt", "w")
+txtfile.write(str(inputpassword))
+txtfile.close()
+
+
+password = inputpassword
 PASSLEN = len(password) #For the maxlength failsafe
 timeofstart = time.time() #Get the start of time
 
